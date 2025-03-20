@@ -370,9 +370,9 @@ export default function Lab5() {
           )}
         </div>
       )}
-      
+
       {toggle && (
-        <div className="p-5 flex flex-col gap-5 mt-24">
+        <div className="flex flex-col gap-5 mt-24">
           {filterData.length > 0 ? (
             filterData.map((element) => (
               <div
@@ -381,7 +381,7 @@ export default function Lab5() {
               >
                 <img
                   src={element.image}
-                  className="object-cover rounded h-[100px] w-max"
+                  className="object-cover rounded h-[100px] w-[150px]"
                   alt="Profile"
                 />
                 <div className="ml-5">
