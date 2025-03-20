@@ -328,7 +328,7 @@ export default function Lab5() {
             placeholder="Enter name..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="border-2 border-blue-800 shadow-xl shadow-blue rounded-xl px-4 py-2 text-black cursor-pointer hover:-translate-y-1 transition duration-300"
+            className="bg-white border-2 border-blue-800 shadow-xl shadow-blue rounded-xl px-4 py-2 text-black cursor-pointer hover:-translate-y-1 transition duration-300"
           />
         </div>
   
