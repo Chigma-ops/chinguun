@@ -306,109 +306,109 @@ const exampleData = [
     },
 ];
 export default function Lab5() {
-    const [search, setSearch] = useState("");
-    const [toggle, setToggle] = useState(false);
-  
-    const filterData = exampleData.filter((element) =>
-      element.firstname.toLowerCase().includes(search.toLowerCase())
-    );
-  
-    return (
-      <div className="p-10">
-        <div className="flex z-50 justify-between fixed  top-0 right-0 left-0">
-          <button
-            className="shadow-xl border border-gray-400 text-white bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 hover:-translate-y-1 px-8 py-4 font-semibold transition duration-300 rounded-full"
-            onClick={() => setToggle(!toggle)}
-          >
-            Row
-          </button>
-  
-          <input
-            type="text"
-            placeholder="Enter name..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="bg-white border-2 border-blue-800 shadow-xl shadow-blue rounded-xl px-4 py-2 text-black cursor-pointer hover:-translate-y-1 transition duration-300"
-          />
-        </div>
-  
-        {!toggle && (
-          <div className="grid grid-cols-4 gap-10">
-            {filterData.length > 0 ? (
-              filterData.map((element) => (
-                <div
-                  key={element.id}
-                  className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105"
-                >
-                  <img
-                    src={element.image}
-                    className="object-cover rounded h-[200px] w-[300px]"
-                    alt="Profile"
-                  />
-                  <div className="ml-5">
-                    <p className="text-white font-semibold ml-2">{element.firstname}</p>
-                    <p className="text-white ml-2">Lastname: {element.lastname}</p>
-                    <p className="text-purple-700 ml-2">School: {element.school}</p>
-                    <p className="text-purple-700 ml-2">Job: {element.job}</p>
-                    <div className="mt-2 ml-2">
-                      <p className="text-blue-400 font-semibold">Items:</p>
-                      <ul className="list-disc ml-5 text-white">
-                        {element.items.map((item) => (
-                          <li key={item.id}>{item.name}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              ))
-            ) : (
-                <div className="flex items-center justify-center h-screen w-screen">
-                <p className="text-white font-semibold text-2xl">
-                  !!!!!!Хайлт олдсонгүй
-                </p>
-              </div>
-            )}
-          </div>
-        )}
-  
-        {toggle && (
-          <div className="p-5 flex flex-col gap-10">
-            {filterData.length > 0 ? (
-              filterData.map((element) => (
-                <div
-                  key={element.id}  
-                  className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105"
-                >
-                  <img
-                    src={element.image}
-                    className="object-cover rounded h-[100px] w-max"
-                    alt="Profile"
-                  />
-                  <div className="ml-5">
-                    <p className="text-white font-semibold ml-2">{element.firstname}</p>
-                    <p className="text-white ml-2">Lastname: {element.lastname}</p>
-                    <p className="text-purple-700 ml-2">School: {element.school}</p>
-                    <p className="text-purple-700 ml-2">Job: {element.job}</p>
-                    <div className="mt-2 ml-2">
-                      <p className="text-blue-400 font-semibold">Items:</p>
-                      <ul className="list-disc ml-5 text-white">
-                        {element.items.map((item) => (
-                          <li key={item.id}>{item.name}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              ))
-            ) : (
-                <div className="flex items-center justify-center h-screen w-screen">
-                <p className="text-white font-semibold text-2xl">
-                  !!!!!!Хайлт олдсонгүй
-                </p>
-              </div>
-            )}
-          </div>
-        )}
+  const [search, setSearch] = useState("");
+  const [toggle, setToggle] = useState(false);
+
+  const filterData = exampleData.filter((element) =>
+    element.firstname.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div className="p-10">
+      <div className="flex z-50 justify-between fixed top-0 right-0 left-0 p-5 bg-white shadow-xl shadow-blue-500">
+        <button
+          className="shadow-xl border border-gray-400 text-white bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 hover:-translate-y-1 px-8 py-4 font-semibold transition duration-300 rounded-full"
+          onClick={() => setToggle(!toggle)}
+        >
+          Toggle Row
+        </button>
+
+        <input
+          type="text"
+          placeholder="Enter name..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="bg-white border-2 border-blue-800 shadow-xl shadow-blue rounded-xl px-4 py-2 text-black cursor-pointer hover:-translate-y-1 transition duration-300"
+        />
       </div>
-    );
-  }
+
+      {!toggle && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-24">
+          {filterData.length > 0 ? (
+            filterData.map((element) => (
+              <div
+                key={element.id}
+                className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105"
+              >
+                <img
+                  src={element.image}
+                  className="object-cover rounded h-[200px] w-full"
+                  alt="Profile"
+                />
+                <div className="ml-5 mt-3">
+                  <p className="text-white font-semibold">{element.firstname}</p>
+                  <p className="text-white">Lastname: {element.lastname}</p>
+                  <p className="text-purple-700">School: {element.school}</p>
+                  <p className="text-purple-700">Job: {element.job}</p>
+                  <div className="mt-2">
+                    <p className="text-blue-400 font-semibold">Items:</p>
+                    <ul className="list-disc ml-5 text-white">
+                      {element.items.map((item) => (
+                        <li key={item.id}>{item.name}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="flex items-center justify-center w-full mt-20">
+              <p className="text-white font-semibold text-2xl">
+                No results found
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+      
+      {toggle && (
+        <div className="p-5 flex flex-col gap-5 mt-24">
+          {filterData.length > 0 ? (
+            filterData.map((element) => (
+              <div
+                key={element.id}
+                className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105"
+              >
+                <img
+                  src={element.image}
+                  className="object-cover rounded h-[100px] w-max"
+                  alt="Profile"
+                />
+                <div className="ml-5">
+                  <p className="text-white font-semibold">{element.firstname}</p>
+                  <p className="text-white">Lastname: {element.lastname}</p>
+                  <p className="text-purple-700">School: {element.school}</p>
+                  <p className="text-purple-700">Job: {element.job}</p>
+                  <div className="mt-2">
+                    <p className="text-blue-400 font-semibold">Items:</p>
+                    <ul className="list-disc ml-5 text-white">
+                      {element.items.map((item) => (
+                        <li key={item.id}>{item.name}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="flex items-center justify-center w-full mt-20">
+              <p className="text-white font-semibold text-2xl">
+                No results found
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
