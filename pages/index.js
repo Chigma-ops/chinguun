@@ -333,12 +333,12 @@ export default function Lab5() {
       </div>
 
       {!toggle && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-24 bg-black">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-24 ">
           {filterData.length > 0 ? (
             filterData.map((element) => (
               <div
                 key={element.id}
-                className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105 bg-black"
+                className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105"
               >
                 <img
                   src={element.image}
@@ -347,7 +347,7 @@ export default function Lab5() {
                 />
                 <div className="ml-5 mt-3">
                   <p className="text-white font-semibold">{element.firstname}</p>
-                  <p className="text-white">Lastname: {element.lastname}</p>
+                  <p className="text-white">Lastname: {element.lastname}</p>  
                   <p className="text-purple-700">School: {element.school}</p>
                   <p className="text-purple-700">Job: {element.job}</p>
                   <div className="mt-2">
@@ -371,44 +371,47 @@ export default function Lab5() {
         </div>
       )}
 
-      {toggle && (
-        <div className="flex flex-col gap-5 mt-24 bg-black">
-          {filterData.length > 0 ? (
-            filterData.map((element) => (
-              <div
-                key={element.id}
-                className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105 bg-black"
-              >
-                <img
-                  src={element.image}
-                  className="object-cover rounded h-[100px] w-[150px]"
-                  alt="Profile"
-                />
-                <div className="ml-5">
-                  <p className="text-white font-semibold">{element.firstname}</p>
-                  <p className="text-white">Lastname: {element.lastname}</p>
-                  <p className="text-purple-700">School: {element.school}</p>
-                  <p className="text-purple-700">Job: {element.job}</p>
-                  <div className="mt-2">
-                    <p className="text-blue-400 font-semibold">Items:</p>
-                    <ul className="list-disc ml-5 text-white">
-                      {element.items.map((item) => (
-                        <li key={item.id}>{item.name}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+{toggle && (
+  <div className="flex flex-col gap-5 mt-24 bg-black">
+    {filterData.length > 0 ? (
+      filterData.map((element) => (
+        <div
+          key={element.id}
+          className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105"
+        >
+          <div className="flex">
+            <img
+              src={element.image}
+              className="object-cover rounded w-40 h-40"
+              alt="Profile"
+            />
+
+            <div className="ml-5 text-center flex flex-col justify-center space-y-2">
+              <p className="text-white font-semibold">{element.firstname}</p>
+              <p className="text-white">Lastname: {element.lastname}</p>
+              <p className="text-purple-700">School: {element.school}</p>
+              <p className="text-purple-700">Job: {element.job}</p>
+
+              <div className="mt-2">
+                <p className="text-blue-400 font-semibold">Items:</p>
+                <ul className="list-disc ml-5 text-white">
+                  {element.items.map((item) => (
+                    <li key={item.id}>{item.name}</li>
+                  ))}
+                </ul>
               </div>
-            ))
-          ) : (
-            <div className="flex items-center justify-center w-full mt-20">
-              <p className="text-white font-semibold text-2xl">
-                No results found
-              </p>
             </div>
-          )}
+          </div>
         </div>
-      )}
+      ))
+    ) : (
+      <div className="flex items-center justify-center w-full mt-20">
+        <p className="text-white font-semibold text-2xl">No results found</p>
+      </div>
+    )}
+  </div>
+)}
+
     </div>
   );
 }
