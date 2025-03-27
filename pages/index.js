@@ -6,10 +6,7 @@ export default function Lab5() {
   const router = useRouter();
  
   return (
-    <div className="flex flex-col bg-black h-screen justify-center items-center gap-5 bg-cover bg-center relative" 
-         style={{ backgroundImage: 'url(https://www.atlasandboots.com/wp-content/uploads/2019/05/ama-dablam2-most-beautiful-mountains-in-the-world.jpg)' }}>
-      <div className="absolute inset-0 bg-black opacity-60"></div>
-      
+    <div className="flex flex-col bg-black h-screen justify-center items-center gap-5 bg-cover bg-center relative bg-gradient-to-r from-blue-950 to-slate-900">      
       <div className="flex flex-col border rounded-full p-10 z-10">
         <h1 className="text-white font-bold text-3xl">Chinguun Toivgoo</h1>
       </div>
