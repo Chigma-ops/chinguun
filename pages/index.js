@@ -338,7 +338,7 @@ export default function Lab5() {
             filterData.map((element) => (
               <div
                 key={element.id}
-                className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105"
+                className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105 bg-black"
               >
                 <img
                   src={element.image}
