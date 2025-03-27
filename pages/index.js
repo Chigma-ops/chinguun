@@ -314,7 +314,7 @@ export default function Lab5() {
   );
 
   return (
-    <div className="p-10">
+    <div className="p-10 bg-black">
       <div className="flex z-50 justify-between fixed top-0 right-0 left-0 p-5 bg-white shadow-xl shadow-blue-500">
         <button
           className="shadow-xl border border-gray-400 text-white bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 hover:-translate-y-1 px-8 py-4 font-semibold transition duration-300 rounded-full"
@@ -372,7 +372,7 @@ export default function Lab5() {
       )}
 
       {toggle && (
-        <div className="flex flex-col gap-5 mt-24">
+        <div className="flex flex-col gap-5 mt-24 bg-black">
           {filterData.length > 0 ? (
             filterData.map((element) => (
               <div
