@@ -333,7 +333,7 @@ export default function Lab5() {
       </div>
 
       {!toggle && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-24 bg-black">
           {filterData.length > 0 ? (
             filterData.map((element) => (
               <div
@@ -377,7 +377,7 @@ export default function Lab5() {
             filterData.map((element) => (
               <div
                 key={element.id}
-                className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105"
+                className="p-5 rounded-lg text-black border-white border shadow-xl shadow-blue-500 transition-transform duration-300 transform hover:scale-105 bg-black"
               >
                 <img
                   src={element.image}
