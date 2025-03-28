@@ -24,7 +24,7 @@ const UseStateHook = () => {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your name"
             />
-            <p className="text-white  ml-10">Hi Nest 11v</p>
+            <p className="text-white ml-10">Hi Nest 11v</p>
             {name === "" ? 
                 <p className="ml-3 text-white">Suragch</p> : 
                 <p className="ml-3 text-white">{name}</p>}
