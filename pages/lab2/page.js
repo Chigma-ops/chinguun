@@ -9,12 +9,12 @@ const UseStateHook = () => {
 
   return (
     <div className={`flex flex-col items-center justify-center w-full h-screen bg-${color}-800 p-4`}>
-      <button
-        className="absolute top-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm"
-        onClick={() => router.back()}
-      >
-        Back
-      </button>
+       <button
+                className="absolute bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px]"
+                onClick={() => router.back()}
+            >
+                Back
+            </button>
       
       <p className="text-white text-lg mb-4">Change color:</p>
       
