@@ -8,52 +8,56 @@ const UseStateHook = () => {
   const router = useRouter();
 
   return (
-    <div className={`flex space-x-4 w-full h-screen bg-${color}-800`}>
-        <button
-        className="absolute bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px]"
+    <div className={`flex flex-col items-center justify-center w-full h-screen bg-${color}-800 p-4`}>
+      <button
+        className="absolute top-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm"
         onClick={() => router.back()}
       >
         Back
       </button>
-      <p>Change color:</p>
+      
+      <p className="text-white text-lg mb-4">Change color:</p>
+      
       {color === " " && (
-        <>
+        <div className="space-x-4 mb-6">
           <button
-            className="border bg-red-800 py-4 px-6"
+            className="border bg-red-800 py-2 px-4 sm:py-4 sm:px-6 text-white rounded"
             onClick={() => setColor("red")}
           >
             Red
           </button>
           <button
-            className="border bg-blue-800 py-4 px-6"
+            className="border bg-blue-800 py-2 px-4 sm:py-4 sm:px-6 text-white rounded"
             onClick={() => setColor("blue")}
           >
             Blue
           </button>
           <button
-            className="border bg-green-800 py-4 px-6"
+            className="border bg-green-800 py-2 px-4 sm:py-4 sm:px-6 text-white rounded"
             onClick={() => setColor("green")}
           >
             Green
           </button>
-        </>
+        </div>
       )}
+
       <button
-        className="border bg-white py-4 px-6"
+        className="border bg-white py-2 px-4 sm:py-4 sm:px-6 text-black rounded mb-4"
         onClick={() => setColor(" ")}
       >
         Return
       </button>
+
       {color !== " " && (
         <button
-          className={`border py-4 px-6 text-white bg-${color}-700`}
+          className={`border py-2 px-4 sm:py-4 sm:px-6 text-white rounded bg-${color}-700`}
           onClick={() => setColor(color)}
         >
           {color}
         </button>
       )}
 
-      <p>
+      <p className="text-white text-lg mt-4">
         {color === "red"
           ? "123"
           : color === "blue"
@@ -64,8 +68,6 @@ const UseStateHook = () => {
           ? "1000"
           : "000"}
       </p>
-
-      
     </div>
   );
 };
