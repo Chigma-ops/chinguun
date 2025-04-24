@@ -21,6 +21,7 @@ export default function Lab5() {
   return (
     <div>
       <div className="bg-white h-[100px] w-full flex items-center justify-between px-4 md:px-8 sticky top-0 z-50">
+        
         <img
           className="w-[100px] md:w-[140px] ml-2 md:ml-[145px]"
           src="https://www.toki.mn/wp-content/uploads/2022/08/Asset-1@3x.png"

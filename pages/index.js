@@ -1,27 +1,60 @@
 "use client";
 
-export default function Lab5() {
-  return (
-      <div>
-        <div className="bg-white h-[100px] w-full flex items-center justify-between px-8">
-        <img 
-          className="w-[140px] ml-[200px]" 
-          src="https://www.toki.mn/wp-content/uploads/2022/08/Asset-1@3x.png" 
-        />
-        <div className="flex space-x-6">
-          <p className="text-black font-bold">Үйлчилгээ</p>
-          <p className="text-black font-bold">Давуу тал</p>
-          <p className="text-black font-bold">Мэдээ</p>
-          <p className="text-black font-bold">Хамтран ажиллах</p>
-        </div>
-      </div>
-      <div className="flex justify-center items-center bg-amber-500 h-screen w-full">
-       <div className="text-center">
-       <p className="font-bold text-black text-2xl">ХЭРЭГЦЭЭТ ҮЙЛЧИЛГЭЭ НЭГ ДООРООС....</p>
-        <img className=" h-full" src="https://www.toki.mn/wp-content/uploads/2020/06/Artboard-1-2.png" />
-       </div>
-       </div>
 
+import { useRouter } from 'next/router';
+
+
+export default function Lab5() {
+  const router = useRouter();
+
+  return (
+    <div className="flex justify-center items-center bg-amber-500 h-screen w-full">
+      <div className="text-center">
+        <p className="font-bold text-black text-2xl mb-6">Navigate to Different Pages</p>
+        
+        <button
+          onClick={() => router.push('/lab1/page')}
+          className="border text-white py-2 px-4 m-2 rounded"
+        >
+          Go to Page 1
+        </button>
+
+        <button
+          onClick={() => router.push('/lab2/page')}
+          className="border text-white py-2 px-4 m-2 rounded"
+        >
+          Go to Page 2
+        </button>
+
+        <button
+          onClick={() => router.push('/lab3/page')}
+          className="border text-white py-2 px-4 m-2 rounded"
+        >
+          Go to Page 3
+        </button>
+
+        <button
+          onClick={() => router.push('/lab4/page')}
+          className="border text-white py-2 px-4 m-2 rounded"
+        >
+          Go to Page 4
+        </button>
+
+
+        <button
+          onClick={() => router.push('/hicheel1/page')}
+          className="border text-white py-2 px-4 m-2 rounded"
+        >
+          Go to Page 5
+        </button>
+
+        <button
+          onClick={() => router.push('/uliral4/lab1')}
+          className="border text-white py-2 px-4 m-2 rounded"
+        >
+          Go to Uliral 4
+        </button>
       </div>
+    </div>
   );
 }

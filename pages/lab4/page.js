@@ -362,7 +362,8 @@ export default function Lab5() {
                     <p className="text-blue-400 font-semibold">Items:</p>
                     <ul className="list-disc ml-5 text-white">
                       {element.items.map((item) => (
-                        <li key={item.id}>{item.name}</li>
+                        <li 
+                        >{item.name}</li>
                       ))}
                     </ul>
                   </div>
