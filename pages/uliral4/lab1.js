@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from 'next/navigation';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const data = [
   {
@@ -46,7 +46,7 @@ const data = [
   },
   {
     id: 3,
-    name: "Iphone 12 pro",
+    name: "Iphone 12 pro sadffhkfk",
     color: "brown",
     price: 1700000,
     image:
@@ -66,7 +66,7 @@ const data = [
   },
   {
     id: 4,
-    name: "Iphone 13 pro",
+    name: "Iphone 13 pro safsafddga",
     color: "white",
     price: 2500000,
     image:
@@ -86,7 +86,7 @@ const data = [
   },
   {
     id: 5,
-    name: "Iphone 16 pro",
+    name: "Iphone 16 prosafsaddjfgsdhgfisdahgfhksgdafh",
     color: "sky blue",
     price: 2500000,
     image:
@@ -108,6 +108,8 @@ const data = [
 export default function Lab1() {
   const router = useRouter();
   const [search, setSearch] = useState("");
+
+
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -161,9 +163,15 @@ export default function Lab1() {
                 className="text-black w-full bg-white rounded-xl p-6 flex flex-wrap justify-between items-center"
               >
                 <div className="border border-amber-300 h-[20px] w-[20px]"></div>
-                <div className="min-w-[100px]">{item.name}</div>
-                <div className="min-w-[100px]">{item.price}</div>
-                <div className="min-w-[100px]">{item.color}</div>
+                <div className="w-[100px] truncate">{item.name}</div>
+                <div className="w-[100px]">{item.price}</div>
+                <div className="w-[100px]">{item.color}</div>
+                <div>{item.item.map((item) => (
+                  <div className='text-black '>{item.name}</div>
+                ))}</div>
+                <div>{item.item.map((item) => (
+                  <div className='text-black '>{item.price}</div>
+                ))}</div>
                 <img
                   src={item.image}
                   alt={item.name}
