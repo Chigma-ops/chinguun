@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
 import { useState } from "react";
 
 const data = [
@@ -89,7 +90,7 @@ const data = [
     color: "sky blue",
     price: 2500000,
     image:
-      "https://ola.tech/wp-content/uploads/iphone-12-pro-max-graphite.webp",
+      "https://istorepreowned.co.za/cdn/shop/products/iPhone_13_Pro_Blue.png?v=1710874242",
     item: [
       {
         id: 18,
@@ -105,8 +106,22 @@ const data = [
   },
 ];
 export default function Lab1() {
+  const router = useRouter();
+  const [search, setSearch] = useState("");
+  const filteredData = data.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+
   return (
     <div className="flex gap-x-6 p-4 bg-gray-400">
+      <button
+        className="fixed bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px] z-50"
+        onClick={() => router.back()}
+      >
+        Back
+      </button>
+
       <div className="w-[20%] bg-gray-200 h-[95vh] rounded-xl flex flex-col items-center">
         <img
           src="https://nhs.edu.mn/favicon.ico"
@@ -120,14 +135,49 @@ export default function Lab1() {
         <p className="text-black mt-5">lab3</p>
       </div>
 
-      <div className="w-[80%] bg-gray-200 h-[95vh] rounded-xl p-10">
-        <div className="bg-gray-700 flex flex-col gap-4 p-6 rounded-xl">
-          <div className=" p-10 flex flex-col gap-10">
-            {data.map((item) => (
-              <div className="text-black w-full bg-white h-8
-               rounded-xl p-10">{item.name}</div>
-               
+      <div className="w-[80%] bg-gray-200 h-[95vh] rounded-xl p-5 flex flex-col gap-y-10">
+        <div className="flex gap-x-10 ">
+          <div className="items-center flex justify-center h-[50px] w-[200px] bg-gray-700 rounded-xl text-white">
+            Харилцагчид
+          </div>
+          <input
+            type="text"
+            placeholder="Hello Chinguun..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="bg-white border-2 shadow-xl shadow-blue rounded-xl px-4 py-2 text-black cursor-pointer h-[50px] w-[500px]"
+          />
+          <div className="border border-2 border-amber-400 bg-amber-200 h-[50px] w-[50px] rounded-xl"></div>
+          <div className="bg-amber-600 items-center justify-center h-[50px] w-[400px] rounded-xl flex text-white">
+            Харилцагчид бүртгэх
+          </div>
+        </div>
+
+        <div className="bg-gray-700 flex flex-col gap-4 p-2 rounded-xl">
+          <div className="p-4 flex flex-col gap-5">
+            {filteredData.map((item, index) => (
+              <div
+                key={index}
+                className="text-black w-full bg-white rounded-xl p-6 flex flex-wrap justify-between items-center"
+              >
+                <div className="border border-amber-300 h-[20px] w-[20px]"></div>
+                <div className="min-w-[100px]">{item.name}</div>
+                <div className="min-w-[100px]">{item.price}</div>
+                <div className="min-w-[100px]">{item.color}</div>
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="object-cover h-[50px] w-[50px]"
+                />
+                <div className="flex gap-x-5">
+                  <div className="h-[30px] w-[30px] rounded-sm bg-amber-300"></div>
+                  <div className="h-[30px] w-[30px] rounded-sm bg-red-300"></div>
+                </div>
+              </div>
             ))}
+            {filteredData.length === 0 && (
+              <div className="text-white">No items found.</div>
+            )}
           </div>
         </div>
       </div>
