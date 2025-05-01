@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 const data = [
   {
@@ -110,6 +110,8 @@ export default function Lab1() {
   const [search, setSearch] = useState("");
 
 
+
+
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -128,7 +130,7 @@ export default function Lab1() {
         <img
           src="https://nhs.edu.mn/favicon.ico"
           alt="image description"
-          className="mt-5 w-40 h-40"
+          className="mt-5 w-40 h-40"  
         />
         <h1 className="text-black mt-10 text-2xl">Chinguun Toivgoo</h1>
         <h2 className="text-purple-600 mt-6">Nest Education It School</h2>
