@@ -12,6 +12,7 @@ export default function Lab2() {
         const fetchData = async () => {
             try {
                 setLoading(true);
+<<<<<<< HEAD
                 const clothes = await fetch("https://mongol-api-rest.vercel.app/clothes");
                 const instruments = await fetch("https://mongol-api-rest.vercel.app/instruments");
                 const tools = await fetch("https://mongol-api-rest.vercel.app/historicaltools");
@@ -28,6 +29,11 @@ export default function Lab2() {
                 const result6 = await figures.json();
                 const result7 = await attractions.json();
                 setData([...result1.clothes, ...result2.instruments, ...result3.tools, ...result4/ethnic, ...result5.provinces, ...result6.figures, ...result7.attractions]);
+=======
+                const response = await fetch("https://mongol-api-rest.vercel.app/clothes");
+                const result = await response.json();
+                setData(result);
+>>>>>>> 7b95904dbadaf08ce0338298d6a2b04d7d92fc72
             } catch (error) {
                 console.error(error);
             } finally {
@@ -41,6 +47,7 @@ export default function Lab2() {
     console.log(data);
 
     return (
+<<<<<<< HEAD
         <div className="flex gap-x-6 p-4 bg-gray-400">
       <button
         className="fixed bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px] z-50"
@@ -125,4 +132,40 @@ export default function Lab2() {
       )}
     </div>
     );
+=======
+        <div className='bg-blue-800 min-h-screen w-full p-4'>
+          <button
+            className="fixed bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px] z-50"
+            onClick={() => router.back()}
+          >
+            Back
+          </button>
+      
+          {loading ? (
+            <div className="text-white text-center">Loading...</div>
+          ) : (
+            <div className='grid grid-cols-4 gap-10'>
+              {data?.clothes?.map((item, index) => (
+                <div
+                  key={index}
+                  className="text-black bg-blue-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-4xl inset-shadow-whit gap-y-5"
+                >
+                  <img src={item.images} className='object-cover h-[300px] rounded-xl' />
+                  <div className='flex gap-x-2'>
+                    <div className="truncate font-semibold">{item.name}</div>
+                    <div className="truncate font-semibold">/</div>
+                    <div className="truncate font-semibold">{item.timePeriod}</div>
+                  </div>
+                  <div className='flex gap-x-3'>
+                    <div className="text-sm text-gray-600">{item.description}</div>
+                    <div className='text-sm text-blue-600'>{item.materials}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}x
+        </div>
+      );
+      
+>>>>>>> 7b95904dbadaf08ce0338298d6a2b04d7d92fc72
 }

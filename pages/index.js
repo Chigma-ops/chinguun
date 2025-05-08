@@ -1,7 +1,7 @@
 "use client";
 
 
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 
 export default function Lab5() {
@@ -46,7 +46,16 @@ export default function Lab5() {
         >
           Go to Uliral 4
         </button>
+<<<<<<< HEAD
 
+=======
+        <button
+          onClick={() => router.push('/uliral4.2/lab2')}
+          className="border text-white py-2 px-4 m-2 rounded"
+        >
+          Go to Uliral 4.2
+        </button>
+>>>>>>> 7b95904dbadaf08ce0338298d6a2b04d7d92fc72
       </div>
     </div>
   );
