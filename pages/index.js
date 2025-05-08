@@ -40,14 +40,6 @@ export default function Lab5() {
           Go to Page 4
         </button>
 
-
-        <button
-          onClick={() => router.push('/hicheel1/page')}
-          className="border text-white py-2 px-4 m-2 rounded"
-        >
-          Go to Page 5
-        </button>
-
         <button
           onClick={() => router.push('/uliral4/lab1')}
           className="border text-white py-2 px-4 m-2 rounded"
@@ -55,12 +47,6 @@ export default function Lab5() {
           Go to Uliral 4
         </button>
 
-        <button
-          onClick={() => router.push('/uliral4.2/lab2')}
-          className="border text-white py-2 px-4 m-2 rounded"
-        >
-          Go to Uliral 4.2
-        </button>
       </div>
     </div>
   );

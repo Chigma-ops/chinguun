@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Lab5() {
+  const router = useRouter();
   useEffect(() => {
     document.querySelectorAll("[data-scroll-to]").forEach((item) => {
       item.addEventListener("click", () => {
@@ -21,7 +23,12 @@ export default function Lab5() {
   return (
     <div>
       <div className="bg-white h-[100px] w-full flex items-center justify-between px-4 md:px-8 sticky top-0 z-50">
-        
+      <button
+        className="fixed bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px] z-50"
+        onClick={() => router.back()}
+      >
+        Back
+      </button>
         <img
           className="w-[100px] md:w-[140px] ml-2 md:ml-[145px]"
           src="https://www.toki.mn/wp-content/uploads/2022/08/Asset-1@3x.png"

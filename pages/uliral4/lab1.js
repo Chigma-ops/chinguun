@@ -110,8 +110,6 @@ export default function Lab1() {
   const [search, setSearch] = useState("");
 
 
-
-
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -134,9 +132,9 @@ export default function Lab1() {
         />
         <h1 className="text-black mt-10 text-2xl">Chinguun Toivgoo</h1>
         <h2 className="text-purple-600 mt-6">Nest Education It School</h2>
-        <p className="text-black mt-5">lab1</p>
-        <p className="text-black mt-5">lab2</p>
-        <p className="text-black mt-5">lab3</p>
+        <p className="text-black mt-5 cursor-pointer" onClick={() => router.push("/hicheel1/page")}>lab1</p>
+        <p className="text-black mt-5 cursor-pointer">lab2</p>
+        <p className="text-black mt-5 cursor-pointer" onClick={() => router.push("/uliral4.2/lab2")}>lab3</p>
       </div>
 
       <div className="w-[80%] bg-gray-200 h-[95vh] rounded-xl p-5 flex flex-col gap-y-10">
@@ -193,4 +191,4 @@ export default function Lab1() {
       </div>
     </div>
   );
-}
+} 

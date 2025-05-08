@@ -316,7 +316,7 @@ export default function Lab5() {
   );
 
   return (
-    <div className="p-10 bg-black">
+    <div className="p-10 bg-gray">
         <button
                 className="fixed bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px] z-50"
                 onClick={() => router.back()}
