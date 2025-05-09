@@ -4,51 +4,67 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 
 export default function Lab2() {
-    const router = useRouter();
-    const [data, setData] = useState("");
-    const [loading, setLoading] = useState(false);
+  const router = useRouter();
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-<<<<<<< HEAD
-                const clothes = await fetch("https://mongol-api-rest.vercel.app/clothes");
-                const instruments = await fetch("https://mongol-api-rest.vercel.app/instruments");
-                const tools = await fetch("https://mongol-api-rest.vercel.app/historicaltools");
-                const ethnic = await fetch("https://mongol-api-rest.vercel.app/ethnicgroups");
-                const provinces = await fetch("https://mongol-api-rest.vercel.app/provinces");
-                const figures = await fetch("https://mongol-api-rest.vercel.app/historicalfigures");
-                const attractions = await fetch("https://mongol-api-rest.vercel.app/touristattractions");
+  const filteredData = data.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
 
-                const result1 = await clothes.json();
-                const result2 = await instruments.json();
-                const result3 = await tools.json();
-                const result4 = await ethnic.json();
-                const result5 = await provinces.json();
-                const result6 = await figures.json();
-                const result7 = await attractions.json();
-                setData([...result1.clothes, ...result2.instruments, ...result3.tools, ...result4/ethnic, ...result5.provinces, ...result6.figures, ...result7.attractions]);
-=======
-                const response = await fetch("https://mongol-api-rest.vercel.app/clothes");
-                const result = await response.json();
-                setData(result);
->>>>>>> 7b95904dbadaf08ce0338298d6a2b04d7d92fc72
-            } catch (error) {
-                console.error(error);
-            } finally {
-                setLoading(false);
-            }
-        };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
 
-        fetchData();
-    }, []);
+        const clothes = await fetch("https://mongol-api-rest.vercel.app/clothes");
+        const instruments = await fetch("https://mongol-api-rest.vercel.app/instruments");
+        const tools = await fetch("https://mongol-api-rest.vercel.app/historicaltools");
+        const ethnic = await fetch("https://mongol-api-rest.vercel.app/ethnicgroups");
+        const provinces = await fetch("https://mongol-api-rest.vercel.app/provinces");
+        const figures = await fetch("https://mongol-api-rest.vercel.app/historicalfigures");
+        const attractions = await fetch("https://mongol-api-rest.vercel.app/touristattractions");
 
-    console.log(data);
+        const result1 = await clothes.json();
+        const result2 = await instruments.json();
+        const result3 = await tools.json();
+        const result4 = await ethnic.json();
+        const result5 = await provinces.json();
+        const result6 = await figures.json();
+        const result7 = await attractions.json();
 
-    return (
-<<<<<<< HEAD
-        <div className="flex gap-x-6 p-4 bg-gray-400">
+        setData([
+          ...result1.clothes,
+          ...result2.instruments,
+          ...result3.historicalTools,
+          ...result4.ethnicGroups,
+          ...result5.provinces,
+          ...result6.historicalFigures,
+          ...result7.touristAttractions,
+        ]);
+
+        console.log(result1);
+        console.log(result2);
+        console.log(result3);
+        console.log(result4);
+        console.log(result5);
+        console.log(result6);
+        console.log(result7);
+
+
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div className="flex gap-x-6 p-4 bg-gray-400">
       <button
         className="fixed bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px] z-50"
         onClick={() => router.back()}
@@ -80,92 +96,85 @@ export default function Lab2() {
         <p className="text-black mt-5 cursor-pointer">lab3</p>
       </div>
 
-      {loading ? (
-        <div className="flex justify-center items-center w-full h-screen">
-          <svg
-            className="mr-3 -ml-1 size-5 animate-spin text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-            />
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 
-              5.291A7.962 7.962 0 014 12H0c0 3.042 
-              1.135 5.824 3 7.938l3-2.647z"
-            />
-          </svg>
-          <div className="text-white text-sm">Loading...</div>
+      <div className="w-[80%] h-[95vh] flex flex-col bg-gray-200 p-10 rounded-2xl">
+        <div className="flex gap-2 mb-4">
+        <input
+            type="text"
+            placeholder="Hello Chinguun..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="bg-white border-2 shadow-xl shadow-blue rounded-xl px-4 py-2 text-black cursor-pointer h-[50px] w-[500px]"
+          />
+          <div className='h-[50px] w-full border-2 bg-purple-600 rounded-xl text-white items-center justify-center flex'>  /NEST 11V T.CHINGUUN/-ULAANBAATAR  </div>
         </div>
-      ) : (
-        <div className="grid grid-cols-4 gap-10 w-[80%] h-[95vh] overflow-y-auto">
-          {data.map((item, index) => (
-            <div
-              key={index}
-              className="text-black bg-blue-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-xl"
+
+        {loading ? (
+          <div className="flex justify-center items-center w-full h-full">
+            <svg
+              className="mr-3 -ml-1 size-5 animate-spin text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
             >
-              <img
-                src={item.images}
-                alt={item.name}
-                className="object-contain max-w-full h-[300px] rounded-xl"
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
               />
-              <div className="flex gap-x-2 mt-4">
-                <div className="truncate font-semibold">{item.name}</div>
-                <div className="truncate font-semibold">/</div>
-                <div className="truncate font-semibold">{item.timePeriod}</div>
-              </div>
-              <div className="flex gap-x-3 mt-2 text-sm">
-                <div className="text-gray-600">{item.description}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-    );
-=======
-        <div className='bg-blue-800 min-h-screen w-full p-4'>
-          <button
-            className="fixed bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px] z-50"
-            onClick={() => router.back()}
-          >
-            Back
-          </button>
-      
-          {loading ? (
-            <div className="text-white text-center">Loading...</div>
-          ) : (
-            <div className='grid grid-cols-4 gap-10'>
-              {data?.clothes?.map((item, index) => (
-                <div
-                  key={index}
-                  className="text-black bg-blue-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-4xl inset-shadow-whit gap-y-5"
-                >
-                  <img src={item.images} className='object-cover h-[300px] rounded-xl' />
-                  <div className='flex gap-x-2'>
-                    <div className="truncate font-semibold">{item.name}</div>
-                    <div className="truncate font-semibold">/</div>
-                    <div className="truncate font-semibold">{item.timePeriod}</div>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 
+                5.291A7.962 7.962 0 014 12H0c0 3.042 
+                1.135 5.824 3 7.938l3-2.647z"
+              />
+            </svg>
+            <div className="text-white text-sm">Loading...</div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-4 gap-10 overflow-y-auto">
+            {filteredData.map((item, index) => (
+              <div
+                key={index}
+                className="text-black bg-blue-200 rounded-xl p-6 flex flex-col items-center justify-center shadow-xl"
+              >
+                {item.images ? (
+                  <img
+                    src={item.images}
+                    alt={item.name}
+                    className="object-contain max-w-full h-[300px] rounded-xl"
+                  />
+                ) : (
+                  <div className="flex items-center justify-center h-[300px] w-full bg-gray-300 text-gray-700 rounded-xl text-center p-4">
+                    Don't have image
                   </div>
-                  <div className='flex gap-x-3'>
-                    <div className="text-sm text-gray-600">{item.description}</div>
-                    <div className='text-sm text-blue-600'>{item.materials}</div>
-                  </div>
+                )}
+
+                <div className="flex flex-col gap-x-2 mt-4 text-center">
+                  <div className="truncate font-semibold">{item.name}</div>
+                  <div className="truncate font-semibold">/</div>
+                  <div className="truncate font-semibold">{item.timePeriod}</div>
                 </div>
-              ))}
-            </div>
-          )}x
-        </div>
-      );
-      
->>>>>>> 7b95904dbadaf08ce0338298d6a2b04d7d92fc72
+                <div className="flex flex-col gap-y-1 mt-2 text-sm text-center">
+                  <div className="text-gray-600">{item.description}</div>
+                  <div>{item.linguistic}</div>
+                  <div>{item.population}</div>
+                  <div>{item.soums}</div>
+                  <div>{item.countryOfBirth}</div>
+                  <div>{item.dateOfDeath}</div>
+                  <div>{item.accomplishment}</div>
+                </div>
+              </div>
+            ))}
+             {filteredData.length === 0 && (
+              <div className="text-white">No items found.</div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
