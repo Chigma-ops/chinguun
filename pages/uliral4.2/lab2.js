@@ -9,8 +9,9 @@ export default function Lab2() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Filter data by name
   const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase())
+    item.name?.toLowerCase().includes(search.toLowerCase())
   );
 
   useEffect(() => {
@@ -44,15 +45,6 @@ export default function Lab2() {
           ...result7.touristAttractions,
         ]);
 
-        console.log(result1);
-        console.log(result2);
-        console.log(result3);
-        console.log(result4);
-        console.log(result5);
-        console.log(result6);
-        console.log(result7);
-
-
       } catch (error) {
         console.error(error);
       } finally {
@@ -65,6 +57,7 @@ export default function Lab2() {
 
   return (
     <div className="flex gap-x-6 p-4 bg-gray-400">
+      {/* Back button */}
       <button
         className="fixed bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px] z-50"
         onClick={() => router.back()}
@@ -72,6 +65,7 @@ export default function Lab2() {
         Back
       </button>
 
+      {/* Sidebar */}
       <div className="w-[20%] bg-gray-200 h-[95vh] rounded-xl flex flex-col items-center">
         <img
           src="https://nhs.edu.mn/favicon.ico"
@@ -79,7 +73,7 @@ export default function Lab2() {
           className="mt-5 w-40 h-40"
         />
         <h1 className="text-black mt-10 text-2xl">Chinguun Toivgoo</h1>
-        <h2 className="text-purple-600 mt-6">Nest Education It School</h2>
+        <h2 className="text-purple-600 mt-6">Nest Education IT School</h2>
 
         <p
           className="text-black mt-5 cursor-pointer"
@@ -96,18 +90,23 @@ export default function Lab2() {
         <p className="text-black mt-5 cursor-pointer">lab3</p>
       </div>
 
+      {/* Main content */}
       <div className="w-[80%] h-[95vh] flex flex-col bg-gray-200 p-10 rounded-2xl">
+        {/* Search bar and header */}
         <div className="flex gap-2 mb-4">
-        <input
+          <input
             type="text"
             placeholder="Hello Chinguun..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="bg-white border-2 shadow-xl shadow-blue rounded-xl px-4 py-2 text-black cursor-pointer h-[50px] w-[500px]"
+            className="bg-white border-2 shadow-xl rounded-xl px-4 py-2 text-black h-[50px] w-[500px]"
           />
-          <div className='h-[50px] w-full border-2 bg-purple-600 rounded-xl text-white items-center justify-center flex'>  /NEST 11V T.CHINGUUN/-ULAANBAATAR  </div>
+          <div className='h-[50px] w-full border-2 bg-purple-600 rounded-xl text-white flex items-center justify-center'>
+            /NEST 11V T.CHINGUUN/ - ULAANBAATAR
+          </div>
         </div>
 
+        {/* Loader or Content */}
         {loading ? (
           <div className="flex justify-center items-center w-full h-full">
             <svg
@@ -169,7 +168,7 @@ export default function Lab2() {
                 </div>
               </div>
             ))}
-             {filteredData.length === 0 && (
+            {filteredData.length === 0 && (
               <div className="text-white">No items found.</div>
             )}
           </div>

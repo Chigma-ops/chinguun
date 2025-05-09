@@ -46,13 +46,22 @@ export default function Lab5() {
         >
           Go to Uliral 4
         </button>
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 064a4f2de559fd8c8a2cd77081fbce00da983a01
         <button
           onClick={() => router.push('/uliral4.2/lab2')}
           className="border text-white py-2 px-4 m-2 rounded"
         >
           Go to Uliral 4.2
         </button>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 064a4f2de559fd8c8a2cd77081fbce00da983a01
       </div>
     </div>
   );
