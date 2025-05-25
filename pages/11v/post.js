@@ -55,7 +55,7 @@ export default function Post() {
           </div>
 
           <button
-            onClick={handleSubmit}
+            onClick={() => handleSubmit()}
             className="w-full bg-green-500 hover:bg-green-600 transition rounded-xl px-4 py-3 text-white text-lg font-semibold"
           >
             Хэрэглэгч үүсгэх
