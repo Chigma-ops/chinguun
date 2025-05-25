@@ -9,10 +9,6 @@ export default function Lab2() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
 
-<<<<<<< HEAD
-=======
-  // Filter data by name
->>>>>>> 9c8187b5e04f10020a15ba070b1ffee6c0b3054e
   const filteredData = data.filter((item) =>
     item.name?.toLowerCase().includes(search.toLowerCase())
   );
@@ -60,10 +56,7 @@ export default function Lab2() {
 
   return (
     <div className="flex gap-x-6 p-4 bg-gray-400">
-<<<<<<< HEAD
-=======
-      {/* Back button */}
->>>>>>> 9c8187b5e04f10020a15ba070b1ffee6c0b3054e
+
       <button
         className="fixed bottom-4 left-4 border bg-white py-2 px-4 text-black rounded text-sm w-[200px] h-[50px] z-50"
         onClick={() => router.back()}
@@ -71,10 +64,6 @@ export default function Lab2() {
         Back
       </button>
 
-<<<<<<< HEAD
-=======
-      {/* Sidebar */}
->>>>>>> 9c8187b5e04f10020a15ba070b1ffee6c0b3054e
       <div className="w-[20%] bg-gray-200 h-[95vh] rounded-xl flex flex-col items-center">
         <img
           src="https://nhs.edu.mn/favicon.ico"
@@ -99,14 +88,7 @@ export default function Lab2() {
         <p className="text-black mt-5 cursor-pointer">lab3</p>
       </div>
 
-<<<<<<< HEAD
-
       <div className="w-[80%] h-[95vh] flex flex-col bg-gray-200 p-10 rounded-2xl">
-=======
-      {/* Main content */}
-      <div className="w-[80%] h-[95vh] flex flex-col bg-gray-200 p-10 rounded-2xl">
-        {/* Search bar and header */}
->>>>>>> 9c8187b5e04f10020a15ba070b1ffee6c0b3054e
         <div className="flex gap-2 mb-4">
           <input
             type="text"
@@ -119,11 +101,6 @@ export default function Lab2() {
             /NEST 11V T.CHINGUUN/ - ULAANBAATAR
           </div>
         </div>
-
-<<<<<<< HEAD
-=======
-        {/* Loader or Content */}
->>>>>>> 9c8187b5e04f10020a15ba070b1ffee6c0b3054e
         {loading ? (
           <div className="flex justify-center items-center w-full h-full">
             <svg
@@ -193,8 +170,4 @@ export default function Lab2() {
       </div>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9c8187b5e04f10020a15ba070b1ffee6c0b3054e
