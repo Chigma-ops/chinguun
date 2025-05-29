@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Post() {
   const [name, setName] = useState("");
@@ -9,12 +9,12 @@ export default function Post() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [showUsers, setShowUsers] = useState(false);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleSubmit = () => {
-    if (!name || !ovog || !nas || !gm) {
-      return;
-    }
 
     setSubmitting(true);
 
@@ -28,7 +28,6 @@ export default function Post() {
       .then((response) => {
         console.log("Response:", response.data);
         fetchData();
-        setShowUsers(true);
         setName("");
         setOvog("");
         setNas("");
@@ -49,7 +48,7 @@ export default function Post() {
       const result = await res.json();
       setData(result);
     } catch (error) {
-      console.error(error);
+      console.error("Fetch error:", error);
     } finally {
       setLoading(false);
     }
@@ -119,27 +118,29 @@ export default function Post() {
         </div>
       </div>
 
-      {showUsers && (
-        <div className="bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl rounded-3xl p-6 w-full max-w-2xl">
-          <h2 className="text-2xl font-bold text-white mb-4 text-center"> Бүртгэгдсэн Хэрэглэгчид</h2>
-          {loading ? (
-            <p className="text-white text-center"> Түр хүлээнэ үү...</p>
-          ) : data.length > 0 ? (
-            <ul className="divide-y divide-white/10">
-              {data.map((user, index) => (
-                <li key={index} className="py-3 px-2 text-white flex justify-between items-center">
-                  <div>
-                    <p className="font-semibold">{user.first_name} {user.last_name}</p>
-                    <p className="text-sm text-gray-300">{user.age} настай • {user.email}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-white text-center">Хэрэглэгч алга байна.</p>
-          )}
-        </div>
-      )}
+      <div className="bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl rounded-3xl p-6 w-full max-w-4xl">
+        <h2 className="text-2xl font-bold text-white mb-4 text-center">Бүртгэгдсэн Хэрэглэгчид</h2>
+        {loading ? (
+          <p className="text-white text-center">Түр хүлээнэ үү...</p>
+        ) : data.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {data.map((user, index) => (
+              <div
+                key={index}
+                className="bg-white/10 border border-white/20 rounded-2xl p-4 text-white shadow-md transition hover:scale-[1.02] duration-300"
+              >
+                <h3 className="text-lg font-bold mb-1">
+                  {user.first_name} {user.last_name}
+                </h3>
+                <p className="text-sm text-gray-300 mb-1">{user.age} настай</p>
+                <p className="text-sm text-gray-300">{user.email}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-white text-center">Хэрэглэгч алга байна.</p>
+        )}
+      </div>
     </div>
   );
 }
